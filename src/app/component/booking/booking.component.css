@@ -1,0 +1,171 @@
+input:invalid {
+    border-color: red;
+}
+input,
+input:valid {
+    border-color: #ccc;
+}
+ul{
+	list-style: none;
+}
+.custom-nav-pay li > span{
+	width: 20px;
+    height: 20px;
+    line-height: 20px;
+    display: block;
+    background-color: rgb(215, 215, 219);
+    color: rgb(115, 115, 115);
+    position: relative;
+    z-index: 10;
+    border-radius: 50%;
+    margin: 0px auto;
+}
+.custom-nav-pay svg{
+	color: rgb(115, 115, 115);
+}
+.custom-nav-pay li:not(:last-child):before{
+	content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: rgb(215, 215, 219);
+    top: 6px;
+    transform: translateY(50%);
+}
+.alert-pay{
+	position: relative;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px 0px;
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 223, 226);
+    border-image: initial;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    flex-flow: row wrap;
+    margin-bottom: 8px;
+    padding-left: calc(17px);
+    padding-right: 12px;
+}
+.alert-pay:before{
+    content: "";
+    position: absolute;
+    top: calc(-1px);
+    bottom: calc(-1px);
+    left: calc(-1px);
+    border-left: 5px solid rgb(50, 169, 35);
+}
+.alert-pay-icon{
+	margin-right: 12px;
+}
+.alert-pay-text strong{
+    color: rgb(50, 169, 35);
+    font-weight: 500;
+}
+.form-pay{
+	position: relative;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px 0px;
+    margin: 8px 0px;
+    padding: 8px 16px;
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 223, 226);
+    border-image: initial;
+}
+.input-pay h5{
+	font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    margin: 8px 0px;
+    color: #2A2A2E;
+    margin-bottom: 32px;
+}
+.checkbox-pay{
+	margin-right: 8px;
+}
+.submit-pay input{
+	position: relative;
+    user-select: none;
+    background-color: rgb(83, 146, 249);
+    color: rgb(255, 255, 255);
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    padding: 10px;
+    border-radius: 3px;
+    transition: all 0.15s ease-in-out 0s;
+    padding: 12px 64px;
+    text-transform: uppercase;
+    margin-top: 30px;
+}
+.after-submit{
+	background-color: rgb(243, 249, 242);
+    color: rgb(40, 135, 28);
+    margin-top: calc(13px);
+    position: relative;
+    padding: 4px;
+    border-radius: 2px;
+    display: inline-block;
+    padding: 5px;
+}
+.after-submit:after{
+	content: " ";
+    position: absolute;
+    bottom: 100%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgb(243, 249, 242);
+    right: 50px;
+}
+
+/* kkkkk */
+body { margin:50px auto; width:600px;}
+
+/* CSS for Credit Card Payment form */
+.credit-card-box .panel-title {
+    display: inline;
+    font-weight: bold;
+}
+.credit-card-box .form-control.error {
+    border-color: red;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
+}
+.credit-card-box label.error {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.credit-card-box .payment-errors {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.credit-card-box label {
+    display: block;
+}
+/* The old "center div vertically" hack */
+.credit-card-box .display-table {
+    display: table;
+}
+.credit-card-box .display-tr {
+    display: table-row;
+}
+.credit-card-box .display-td {
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+}
+/* Just looks nicer */
+.credit-card-box .panel-heading img {
+    min-width: 180px;
+}

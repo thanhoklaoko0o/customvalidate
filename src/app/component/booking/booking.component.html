@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="custom-nav-pay py-3">
+			<ul class="row">
+				<li class="col-4 text-center">
+					<span>1</span>
+					<div><span>Thông tin khách hàng</span></div>
+				</li>
+				<li class="col-4 text-center">
+					<span>2</span>
+					<div><span>Chi tiết thanh toán</span></div>
+				</li>
+				<li class="col-4 text-center">
+					<span><svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sc-htoDjs dFMBZK"><path d="M17.942 3.206l-8.76 8.761-3.124-3.123a2 2 0 0 0-2.828 0L1 11.074a2 2 0 0 0 0 2.828l6.767 6.767a2 2 0 0 0 2.828 0L23 8.264a2 2 0 0 0 0-2.828l-2.23-2.23a2 2 0 0 0-2.828 0z"></path></svg></span>
+					<div><span>Đã xác nhận đặt phòng!</span></div>
+				</li>
+			</ul>
+		</div>
+		<div class="alert-pay">
+			<div class="alert-pay-icon">
+				<svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" class="sc-htoDjs hajQqB"><defs><path id="check-valid-state_24px-a" d="M1.146 4.353a.5.5 0 1 1 .708-.706l15.699 15.731a.5.5 0 0 0 .7.008l3.718-3.578a.5.5 0 1 1 .693.72l-3.717 3.578a1.5 1.5 0 0 1-2.102-.021L1.146 4.353z"></path></defs><use transform="matrix(-1 0 0 1 23.817 0)" xlink:href="#check-valid-state_24px-a"></use></svg>
+			</div>
+			<div class="alert-pay-text">
+				<span><strong><span>Lựa chọn chỗ nghỉ tuyệt vời</span></strong> - với số điểm trung bình của khách lên tới <span ><strong>8.2</strong></span></span>
+			</div>
+		</div>
+
+		<div class="form-pay">
+			<form [formGroup]="formPayment" (ngSubmit)="onSubmitForm()">
+				<div class="input-pay">
+					<h5>Vui lòng điền thông tin của bạn</h5>
+				</div>
+				<div class="form-group">
+					<label><span>Họ và tên như trong hộ chiếu</span></label>
+                    <input type="text"  name="txtUsername" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">username is required</div>
+                    </div>
+				</div>
+				<div class="form-group">
+					<label><span>Email</span></label>
+                    <input type="email" name="txtEmail" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+				</div>
+				<div class="form-group">
+					<label ><span>Nhập lại email</span></label>
+                    <input type="email"  name="txtConfirmemail" formControlName="confirmEmail" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmEmail.errors }">
+                    <div *ngIf="submitted && f.confirmEmail.errors" class="invalid-feedback">
+                        <div *ngIf="f.confirmEmail.errors.required">Confirm email is required</div>
+                        <div *ngIf="f.confirmEmail.notMatch">email must match</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE
+                    </label>
+                    <input type="tel" formControlName="expirate" class="form-control" placeholder="MM / YY" [ngClass]="{ 'is-invalid': submitted && f.expirate.errors }"/>
+                    <div *ngIf="submitted && f.expirate.errors" class="invalid-feedback">
+                        <div *ngIf="f.expirate.errors.required">Caaaaaaaaaaa</div>
+                    </div> 
+                </div>
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label><span>Số điện thoại (không bắt buộc)</span></label>
+                            <input type="number" name="txtPhone" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+                            <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                                <div *ngIf="f.phone.errors.pattern">phone 10 is required</div>
+                            </div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="form-group">
+							<label for="country"><span>Quốc gia cư trú</span></label>
+							<select id="country" name="txtCountry" formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted  }">
+								<option value="Mr">Viet Nam</option>
+								<option value="Mr">Viet Nam1</option>
+								<option value="Mr">Viet Nam2</option>
+								<option value="Mr">Viet Nam3</option>
+                            </select>
+                            <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                                <div *ngIf="f.country.errors.required">country is required</div>
+                            </div> 
+						</div>
+					</div>
+				</div>
+				<div>
+					<label><input type="checkbox" name="yes" class="checkbox-pay">Tôi không ở phòng nào tại khách sạn này. Tôi đặt phòng giúp cho người khác.</label>
+				</div>
+				<div class="submit-pay d-flex justify-content-end">
+					<input type="submit" value="Tiep Tuc">
+				</div>
+				<div class="d-flex justify-content-end">
+					<div class="after-submit">
+						<span>Có liền xác nhận đặt phòng!</span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
